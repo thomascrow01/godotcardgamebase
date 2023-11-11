@@ -1,3 +1,28 @@
-[gd_scene format=3 uid="uid://bufjsq11vmkm2"]
+[gd_scene load_steps=2 format=3 uid="uid://bufjsq11vmkm2"]
+
+[ext_resource type="Script" path="res://scripts/Menu.gd" id="1_nwuk0"]
 
 [node name="Node3D" type="Node3D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_nwuk0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Get-Dekt"
+
+[node name="quitbutton" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="Control/VBoxContainer/Button" to="Control" method="_on_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/quitbutton" to="Control" method="_on_quitbutton_pressed"]
