@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://i4iff46vjs4x"]
+
+[ext_resource type="Script" path="res://scripts/CardInGame.gd" id="1_11sta"]
+[ext_resource type="Script" path="res://scripts/CardRender.gd" id="2_46hd2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2rmnl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_36ihi"]
+
+[node name="GenericCard" type="Node"]
+editor_description = "This is the generic card, likely make a new card scene later"
+script = ExtResource("1_11sta")
+
+[node name="CardRender" type="Node" parent="."]
+editor_description = "used for render related purposes"
+script = ExtResource("2_46hd2")
+
+[node name="Node3D" type="Node3D" parent="."]
+editor_description = "This is a 3d node, however this is being used as the card render's (and any collision related things) as the main card in the game"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("BoxMesh_2rmnl")
+surface_material_override/0 = SubResource("StandardMaterial3D_36ihi")
+
+[node name="Label3D" type="Label3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+text = "Test"
+
+[node name="Node2D" type="Node2D" parent="."]
+editor_description = "This is a version of the card meant to be used on the hud (could be used if the game is 2D but use this for something like hovering the mouse over a card to get a closer look)"

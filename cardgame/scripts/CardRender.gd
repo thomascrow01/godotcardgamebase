@@ -6,13 +6,23 @@
 
 extends Node
 
+var node_game : Node
+var node_hud : Node2D
+
 #var card : Card
+
+var hidden : bool
+var invisible : bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	node_game = get_node("../Node3D") as Node
+	node_hud = get_node("../Node2D") as Node2D
+	
+	var material : StandardMaterial3D = (node_game.get_node("MeshInstance3D") as MeshInstance3D).get_surface_override_material(0)
+	material.albedo_texture = load("res://icon.svg")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+#func _process(delta):
+#	pass
