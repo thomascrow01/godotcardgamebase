@@ -1,7 +1,7 @@
 #	CardRender.gd
 #   Written by Thomas Crow
 #	Creation date: 12/11/2023
-#	Last updated: 12/11/2023
+#	Last updated: 16/11/2023
 # This is a base for rendering cards
 
 extends Node
@@ -24,5 +24,5 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	(node_game as Node3D).transform.rotated(Vector3(1,0,0), 45.0)

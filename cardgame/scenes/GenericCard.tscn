@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/CardInGame.gd" id="1_11sta"]
 [ext_resource type="Script" path="res://scripts/CardRender.gd" id="2_46hd2"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_2rmnl"]
+[ext_resource type="ArrayMesh" uid="uid://8wuat0aylbbd" path="res://models/generic_card.obj" id="3_pwqg4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_36ihi"]
 
@@ -19,13 +18,23 @@ script = ExtResource("2_46hd2")
 editor_description = "This is a 3d node, however this is being used as the card render's (and any collision related things) as the main card in the game"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-mesh = SubResource("BoxMesh_2rmnl")
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = ExtResource("3_pwqg4")
 surface_material_override/0 = SubResource("StandardMaterial3D_36ihi")
 
 [node name="Label3D" type="Label3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0.03)
 text = "Test"
 
 [node name="Node2D" type="Node2D" parent="."]
 editor_description = "This is a version of the card meant to be used on the hud (could be used if the game is 2D but use this for something like hovering the mouse over a card to get a closer look)"
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Node2D"]
+scale = Vector2(10, 10)
+mesh = ExtResource("3_pwqg4")
+
+[node name="Label" type="Label" parent="Node2D"]
+modulate = Color(0, 0, 0, 1)
+offset_right = 40.0
+offset_bottom = 23.0
+text = "test"

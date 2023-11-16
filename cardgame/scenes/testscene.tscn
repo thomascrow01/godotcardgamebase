@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bufjsq11vmkm2"]
+[gd_scene load_steps=5 format=3 uid="uid://bufjsq11vmkm2"]
 
 [ext_resource type="Script" path="res://scripts/Menu.gd" id="1_ls6uf"]
 [ext_resource type="PackedScene" uid="uid://i4iff46vjs4x" path="res://scenes/GenericCard.tscn" id="2_l2ti6"]
+
+[sub_resource type="TextMesh" id="TextMesh_kukvk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5fsr"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -32,6 +36,11 @@ transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.433013, -0.866025, 0.25, 0.75, 0.5, 0.433013, -0.5, -1.49012e-08, 0.866025, 1, 1, 2)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
+mesh = SubResource("TextMesh_kukvk")
+surface_material_override/0 = SubResource("StandardMaterial3D_k5fsr")
 
 [connection signal="pressed" from="Control/VBoxContainer/Button" to="Control" method="_on_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/quitbutton" to="Control" method="_on_quitbutton_pressed"]
