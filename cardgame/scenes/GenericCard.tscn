@@ -28,6 +28,7 @@ text = "Test"
 
 [node name="Node2D" type="Node2D" parent="."]
 editor_description = "This is a version of the card meant to be used on the hud (could be used if the game is 2D but use this for something like hovering the mouse over a card to get a closer look)"
+visible = false
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Node2D"]
 scale = Vector2(10, 10)
